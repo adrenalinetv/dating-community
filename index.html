@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Our International Community</title>
+  
+  <!-- Meta tags to prevent tracking -->
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="noindex, nofollow" />
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      max-width: 400px;
+      width: 100%;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .icon {
+      font-size: 64px;
+      margin-bottom: 20px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 12px;
+      color: #000;
+      font-weight: 800;
+    }
+
+    p {
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    .join-btn {
+      display: block;
+      width: 100%;
+      padding: 18px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 18px;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .join-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    }
+
+    .join-btn:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    }
+
+    .timer {
+      font-size: 13px;
+      color: #999;
+      margin-top: 10px;
+    }
+
+    .timer strong {
+      color: #667eea;
+      font-size: 16px;
+    }
+
+    .whatsapp-icon {
+      display: inline-block;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="icon">🌍</div>
+    <h1>Welcome to Our International Community!</h1>
+    <p>Join thousands of members connecting from around the world. Click below to join now!</p>
+    
+    <a href="https://chat.whatsapp.com/D92HhHug1JE0SagwOKASXy" class="join-btn" id="joinBtn">
+      <span class="whatsapp-icon">💬</span>
+      Join WhatsApp Community
+    </a>
+    
+    <div class="timer">
+      Redirecting automatically in <strong id="countdown">5</strong> seconds...
+    </div>
+  </div>
+
+  <script>
+    // Client-side redirect - Meta cannot track this
+    let seconds = 5;
+    const countdownElement = document.getElementById('countdown');
+    const whatsappUrl = 'https://chat.whatsapp.com/D92HhHug1JE0SagwOKASXy';
+    
+    // Update countdown every second
+    const interval = setInterval(() => {
+      seconds--;
+      countdownElement.textContent = seconds;
+      
+      if (seconds <= 0) {
+        clearInterval(interval);
+        // Use location.replace to prevent back button tracking
+        window.location.replace(whatsappUrl);
+      }
+    }, 1000);
+    
+    // Manual button click also uses replace to avoid tracking
+    document.getElementById('joinBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.replace(whatsappUrl);
+    });
+  </script>
+</body>
+</html>
